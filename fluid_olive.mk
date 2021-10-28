@@ -9,8 +9,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common fluid stuff.
+$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
 # Inherit from olive device
 $(call inherit-product, device/xiaomi/olive/device.mk)
@@ -31,8 +31,19 @@ TARGET_USES_BLUR := true
 TARGET_INCLUDE_PIXEL_CHARGER := true
 IS_PHONE := true
 
-# Shipping with core GApps
-$(call inherit-product-if-exists, vendor/gapps/core/config.mk)
+#Gapps
+TARGET_INCLUDE_GAPPS := true
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_AOSP_REPLACEMENTS:= true
+TARGET_INCLUDE_MINIMAL_GAPPS := true
+
+# Inherit Project Fluid Official build stuff.
+FLUID_BUILD_TYPE := UNOFFICIAL
+
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.fluid.maintainer=CheamiSer \
+  ro.fluid.cpu=SD888
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

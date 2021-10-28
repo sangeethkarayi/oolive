@@ -17,7 +17,7 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_olives
 TARGET_RECOVERY_DEVICE_MODULES := libinit_olives
 
 # Kernel
-TARGET_KERNEL_CONFIG := olive-perf_defconfig
+TARGET_KERNEL_CONFIG := cherry-olive_defconfig
 
 # Partitions
 BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
